@@ -1,0 +1,6 @@
+-xHost, -qopt-zmm-usage=high
+
+także /link /STACK:53554432,blablalba
+do zwiększania stack reserve oraz initially commited stacka
+
+ew /F666666666 zmienia stack reserve

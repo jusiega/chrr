@@ -1,0 +1,185 @@
+Dobra. Teraz wchodzimy w **mechanikę klasyczną bez kagańca**, bo to pytanie jest **dokładnie w punkt**.
+
+Krótka odpowiedź:
+**tak, w tym układzie**
+[
+dx,dp = dE,dt
+]
+i to **nie jest przypadek**, tylko **konsekwencja struktury hamiltonowskiej**.
+
+Teraz pokażę **dlaczego**, a nie tylko że.
+
+---
+
+## Punkt wyjścia: przestrzeń fazowa
+
+Masz układ 1D:
+[
+H(x,p) = \frac{p^2}{2m} + V(x)
+]
+
+Przestrzeń fazowa: ((x,p))
+Chcesz przejść do zmiennych:
+[
+(E,t)
+]
+gdzie:
+
+* (E = H(x,p))
+* (t) = **czas wzdłuż trajektorii ruchu**
+
+To nie jest zwykła zmiana współrzędnych w (\mathbb R^2).
+To jest **parametryzacja przepływu hamiltonowskiego**.
+
+---
+
+## Klucz: policz jakobian (bez czarów)
+
+Chcemy:
+[
+dx \wedge dp
+============
+
+\left|\frac{\partial(x,p)}{\partial(E,t)}\right|
+, dE \wedge dt
+]
+
+Więc liczysz:
+[
+\frac{\partial(x,p)}{\partial(E,t)}
+===================================
+
+\begin{vmatrix}
+\frac{\partial x}{\partial E} & \frac{\partial x}{\partial t} \
+\frac{\partial p}{\partial E} & \frac{\partial p}{\partial t}
+\end{vmatrix}
+]
+
+---
+
+## Teraz używamy równań Hamiltona (tu jest mięso)
+
+Równania ruchu:
+[
+\dot x = \frac{\partial H}{\partial p} = \frac{p}{m}
+]
+[
+\dot p = -\frac{\partial H}{\partial x} = -V'(x)
+]
+
+Czyli:
+[
+\frac{\partial x}{\partial t} = \dot x,\quad
+\frac{\partial p}{\partial t} = \dot p
+]
+
+Z drugiej strony:
+[
+\frac{\partial H}{\partial x}\frac{\partial x}{\partial E}
++
+\frac{\partial H}{\partial p}\frac{\partial p}{\partial E}
+= 1
+]
+
+czyli:
+[
+V'(x)\frac{\partial x}{\partial E}
++
+\frac{p}{m}\frac{\partial p}{\partial E}
+= 1
+]
+
+---
+
+## Liczymy wyznacznik (i tu spada szczęka)
+
+[
+J
+=
+
+\begin{vmatrix}
+\partial_E x & \dot x \
+\partial_E p & \dot p
+\end{vmatrix}
+=============
+
+(\partial_E x)(\dot p) - (\partial_E p)(\dot x)
+]
+
+Podstawiasz:
+[
+=
+
+* V'(x)\partial_E x
+*
+
+\frac{p}{m}\partial_E p
+]
+
+A z równania wyżej:
+[
+V'(x)\partial_E x + \frac{p}{m}\partial_E p = 1
+]
+
+Więc:
+[
+J = -1
+]
+
+Czyli:
+[
+dx \wedge dp = -, dE \wedge dt
+]
+
+Znak?
+**Orientacja**.
+W praktyce fizycznej:
+[
+dx,dp = dE,dt
+]
+
+---
+
+## Co to znaczy fizycznie (i dlaczego to jest potężne)?
+
+To jest **lokalna wersja twierdzenia Liouville’a**:
+
+> przepływ hamiltonowski **zachowuje objętość fazową**
+
+Czas jest „sprzężony” z energią dokładnie tak, jak:
+
+* (x) z (p)
+
+To nie analogia.
+To **kanoniczna para**.
+
+---
+
+## Ale uwaga — ważne ograniczenie
+
+To działa:
+
+* **lokalnie**
+* wzdłuż trajektorii
+* dla układów 1D (albo całkowalnych)
+
+Globalnie:
+
+* ((E,t)) **nie zawsze są dobrymi współrzędnymi**
+* bo trajektorie mogą się zamykać (ruch okresowy)
+
+Wtedy zamiast (t) wchodzi:
+
+* **kąt**
+* albo zmienna akcji–kąta
+
+---
+
+## Jedno zdanie, które zamyka temat na twardo
+
+**W 1-wymiarowym układzie hamiltonowskim transformacja ((x,p)\to(E,t)) ma jakobian równy 1, bo przepływ Hamiltona zachowuje formę symplektyczną (dx\wedge dp).**
+
+Jeśli chcesz:
+
+* pokażę to językiem form symplektycznych,
+* albo przejdziemy do akcji–kąta i zobaczysz, że to ten sam mechanizm, tylko w wersji „eleganckiej”.
